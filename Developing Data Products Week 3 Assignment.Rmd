@@ -1,0 +1,50 @@
+---
+title: "Developing Data Products Assignment 3"
+author: "Elena Fedorova"
+date: '14 October 2018 '
+output:
+  ioslides_presentation: default
+  slidy_presentation: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
+```
+
+
+## The Shiny Presentation Assignment
+
+The objective of this assignment is to create a web page presentation using R Markdown that features a plot created with Plotly. The R Markdown presentation is made interactive using Shiny.The webpage is hosted on both GitHub and RPubs. 
+
+On the plot we will explore the relationship between the petrol consupmtion (mpg) and weight of the vehicle split by the number of cylinders. We'll use the mtcars data set for this purpose.
+
+The webpage contains the following: 
+
+1. The date and author of the document 
+
+2. A plot created with Plotly
+
+3. Basic exploratory data analysis
+
+## Visualisation of the relationship: Cars Mpg versus Weight
+
+```{r mtcars, echo = FALSE, message = FALSE}
+library(plotly)
+plot_ly(mtcars, x = ~wt, y = ~mpg, mode = "markers", color = ~as.factor(cyl)) %>%
+        layout(title = 'Relationship between weight and mpg categorised by number of cyliders',
+         xaxis = list(title = 'Weight'),
+         yaxis = list(title = 'Mpg'))
+
+```
+
+## Exploratory data analysis
+
+```{r}
+str(mtcars)
+```
+
+## Exploratory data analysis
+```{r}
+summary(mtcars)
+```
+
